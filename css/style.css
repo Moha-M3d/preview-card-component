@@ -1,0 +1,126 @@
+:root {
+    /* Primary Colors */
+    --primary-clr-1: hsl(31, 77%, 52%);
+    --primary-clr-2: hsl(184, 100%, 22%);
+    --primary-clr-3: hsl(179, 100%, 13%);
+
+    /* Neutral Colors */
+    --neutral-clr-1: hsla(0, 0%, 100%, 0.75); /* Paragraphs */
+    --neutral-clr-2: hsl(0, 0%, 95%); /* Bg Headings Buttons */
+
+    /* Paddings */
+    --box-padding: 40px;
+
+    /* Border Radius */
+    --big-box-br: 10px;
+
+    /* Font */
+    --font-size: 15px;
+    --heading-ff: 'Big Shoulders Display', sans-serif;
+    --second-ff: 'Lexend Deca', sans-serif;
+}
+
+/* Simple Initialisation **************************/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+/* ***********************************************/
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 30px 20px;
+    background-color: var(--neutral-clr-2);
+    font-family: var(--second-ff);
+    font-size: var(--font-size);
+    font-weight: 400;
+    color: var(--neutral-clr-2);
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    border-radius: var(--big-box-br);
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .cards-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+}
+
+.card, .card .upper-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+.card{
+    --flex-gap: 70px;
+    padding: var(--box-padding);
+    gap: var(--flex-gap);
+    justify-content: space-between;
+}
+
+.card .upper-section {
+    gap: calc(var(--flex-gap) / 3);
+
+}
+
+.card.sedans {
+    background-color: var(--primary-clr-1);
+}
+
+.card.suvs {
+    background-color: var(--primary-clr-2);
+}
+
+.card.luxury {
+    background-color: var(--primary-clr-3);
+}
+
+.card h2 {
+    font-family: var(--heading-ff);
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.card p {
+    color: var(--neutral-clr-1);
+    line-height: 1.5;
+}
+
+.card .btn {
+    border: 2px solid var(--neutral-clr-2);
+    border-radius: 999px;
+    padding: 10px 20px;
+    background-color: var(--neutral-clr-2);
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: 300ms;
+}
+
+.card.sedans .btn {
+    color: var(--primary-clr-1)
+}
+
+.card.suvs .btn {
+    color: var(--primary-clr-2)
+}
+
+.card.luxury .btn {
+    color: var(--primary-clr-3)
+}
+
+.card .btn:hover {
+    background-color: transparent;
+    color: var(--neutral-clr-2);
+    border: 2px solid var(--neutral-clr-2);
+}
